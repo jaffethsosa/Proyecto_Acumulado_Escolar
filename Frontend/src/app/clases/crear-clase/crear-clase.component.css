@@ -1,0 +1,18 @@
+.titulo {
+    font-size: 24px; /* Tamaño de fuente más grande */
+    font-weight: bold; /* Texto en negritas */
+    display: block; /* Asegura que el span ocupe el ancho completo */
+    margin-bottom: 20px; /* Espacio debajo del título */
+}
+
+.btn {
+    margin-top: 15px;
+}
+
+.form-group{
+    margin-top: 15px;
+}
+
+h2{
+    margin-bottom: 15px;
+}

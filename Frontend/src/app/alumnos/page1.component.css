@@ -1,0 +1,70 @@
+.container {
+  width: 100%;
+  padding: 16px;
+  margin-top: 25px;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  gap: 16px; /* Espacio entre las tarjetas */
+  justify-content: center; /* Centra las tarjetas horizontalmente */
+}
+
+.card {
+  flex-grow: 1; /* Permite que la tarjeta crezca en su contenedor */
+  flex-shrink: 1; /* Permite que la tarjeta se reduzca según el espacio */
+  min-width: 280px; /* Ancho mínimo de las tarjetas */
+  max-width: 300px; /* Ancho máximo de las tarjetas */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden; /* Asegura que el contenido no se desborde */
+  transition: transform 0.3s ease; /* Transición suave para hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añade una sombra sutil */
+}
+
+.card:hover {
+  transform: scale(1.05); /* Efecto de escala al pasar el mouse */
+}
+
+.card-img-top {
+  width: 100%; /* Asegura que la imagen ocupe todo el ancho del card */
+  height: auto; /* Permite que la altura se ajuste automáticamente */
+  max-height: 200px; /* Altura máxima para las imágenes */
+  object-fit: contain; /* Ajusta la imagen dentro del contenedor manteniendo proporciones */
+}
+
+.card-body {
+  padding: 16px;
+  text-align: center; /* Centra el texto dentro de la tarjeta */
+}
+
+.card-text {
+  color: black;
+  font-weight: bold; /* Texto en negritas */
+  margin: 0; /* Quita el margen del párrafo */
+}
+
+.card-link {
+  display: block; /* Asegura que los enlaces ocupen una línea completa */
+  color: black; /* Color del enlace */
+  text-decoration: none; /* Quita el subrayado */
+  margin-top: 8px; /* Espacio arriba del enlace */
+  font-size: 16px; /* Tamaño de fuente */
+}
+
+.card-link:hover {
+  text-decoration: underline; /* Subrayado al pasar el mouse */
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Centra el botón horizontalmente */
+  margin-top: 20px; /* Añade un poco de espacio arriba del botón */
+}
+
+.btn {
+  padding: 10px 20px; /* Ajusta el tamaño del botón */
+  font-size: 16px;
+}

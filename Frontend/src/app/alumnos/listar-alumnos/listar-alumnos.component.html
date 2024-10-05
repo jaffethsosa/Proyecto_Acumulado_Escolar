@@ -1,0 +1,108 @@
+<div class="container mt-3 pt-5">
+  <div class="row">
+      <div class="col-lg-9 offset-lg-2">
+          <div class="card">
+              <div class="card-body">
+                  
+                  <div class="d-flex justify-content-between mb-3">
+                      <button class="btn btn-success" [routerLink]="['/alumnos']">Volver</button>
+                      <button class="btn btn-success" [routerLink]="['/crearAlumnos']">Nuevo</button>
+                  </div>
+                  <h5 class="card-title text-center">Listado de Alumnos</h5>
+                  <table class="table table-striped">
+                      <thead>
+                          <tr>
+                              <th scope="col">Nombres</th>
+                              <th scope="col">Apellidos</th>
+                              <th scope="col">Identidad</th>
+                              <th scope="col">Fecha/Nacimiento</th>
+                              <th scope="col">Direccion</th>
+                              <th scope="col">telefono</th>
+                              <th scope="col">Email</th>
+                              <th scope="col">Acciones</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let alumno of listAlumnos">
+                              <td>
+                                  <ng-container *ngIf="!alumno.editing">{{alumno.nombres}}</ng-container>
+                                  <ng-container *ngIf="alumno.editing">
+                                      <input [(ngModel)]="alumno.nombres" class="form-control" />
+                                  </ng-container>
+                              </td>
+                              <td>
+                                  <ng-container *ngIf="!alumno.editing">{{alumno.apellidos}}</ng-container>
+                                  <ng-container *ngIf="alumno.editing">
+                                      <input [(ngModel)]="alumno.apellidos" class="form-control" />
+                                  </ng-container>
+                              </td>
+                              <td>
+                                  <ng-container *ngIf="!alumno.editing">{{alumno.dni}}</ng-container>
+                                  <ng-container *ngIf="alumno.editing">
+                                      <input [(ngModel)]="alumno.dni" type="number" class="form-control" />
+                                  </ng-container>
+                              </td>
+                              <td>
+                                <ng-container *ngIf="!alumno.editing">
+                                  {{ formatFechaNac(alumno.fechaNac) }}
+                                </ng-container>
+                                <ng-container *ngIf="alumno.editing">
+                                  <input [(ngModel)]="alumno.fechaNac" type="date" class="form-control" />
+                                </ng-container>
+                              </td>
+                              <td>
+                                  <ng-container *ngIf="!alumno.editing">{{alumno.direccion}}</ng-container>
+                                  <ng-container *ngIf="alumno.editing">
+                                      <input [(ngModel)]="alumno.direccion" class="form-control" />
+                                  </ng-container>
+                              </td>
+                              <td>
+                                <ng-container *ngIf="!alumno.editing">{{alumno.telefono}}</ng-container>
+                                <ng-container *ngIf="alumno.editing">
+                                    <input [(ngModel)]="alumno.telefono" class="form-control" />
+                                </ng-container>
+                                </td>
+                              <td>
+                                <td>
+                                    <ng-container *ngIf="!alumno.editing">{{alumno.email}}</ng-container>
+                                  <ng-container *ngIf="alumno.editing">
+                                      <input [(ngModel)]="alumno.email" class="form-control" />
+                                  </ng-container>
+                                  </td>
+                                <td>
+                                  <ng-container *ngIf="!alumno.editing">
+                                      <div class="d-flex justify-content-end">
+                                       
+                                        <button class="btn btn-primary me-2 btn-sm" (click)="iniciarEdicion(alumno)">
+                                          <i class="fas fa-edit"></i> <!-- Ícono de lápiz -->
+                                        </button>
+                                    
+                                        
+                                        <button class="btn btn-danger btn-sm" (click)="eliminarAlumno(alumno._id)">
+                                          <i class="fas fa-trash"></i> <!-- Ícono de papelera -->
+                                        </button>
+                                      </div>
+                                    </ng-container>
+                                    
+                                    <ng-container *ngIf="alumno.editing">
+                                      <div class="d-flex justify-content-end">
+                                       
+                                        <button class="btn btn-success me-2 btn-sm" (click)="actualizarAlumno(alumno)">
+                                          <i class="fas fa-save"></i> <!-- Ícono de guardar -->
+                                        </button>
+                                    
+                                        
+                                        <button class="btn btn-secondary btn-sm" (click)="cancelarEdicion(alumno)">
+                                          <i class="fas fa-times"></i> <!-- Ícono de cancelar -->
+                                        </button>
+                                      </div>
+                                    </ng-container>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

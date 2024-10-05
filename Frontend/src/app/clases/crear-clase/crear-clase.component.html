@@ -1,0 +1,49 @@
+<div class="container mt-5 pt-5">
+  <div class="row">
+    <div class="col-lg-4 mx-auto">
+      <div class="card">
+        <div class="card-body text-center">
+          <h2>Crear Clase</h2>
+          <form [formGroup]="claseForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="nombre">Nombre de la Clase</label>
+              <input id="nombre" formControlName="nombre" class="form-control" />
+            </div>
+
+            <div class="form-group">
+              <label for="grado">Grado</label>
+              <select id="grado" formControlName="grado" class="form-control">
+                <option value="" disabled selected>Selecciona un Grado</option>
+                <option *ngFor="let grado of grados" [value]="grado._id">{{ grado.nombre }}</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="seccion">Sección</label>
+              <select id="seccion" formControlName="seccion" class="form-control">
+                <option value="" disabled selected>Selecciona una Sección</option>
+                <option *ngFor="let seccion of secciones" [value]="seccion._id">{{ seccion.nombre }}</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="periodo">Periodo</label>
+              <select id="periodo" formControlName="periodo" class="form-control">
+                <option value="" disabled selected>Selecciona un Periodo</option>
+                <option *ngFor="let periodo of periodos" [value]="periodo._id">{{ periodo.anioInicio }} - {{ periodo.anioFin }}</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary" [disabled]="!claseForm.valid">Crear Clase</button>
+            <div class="button-container mt-2">
+              <button class="btn btn-success" [routerLink]="['/clases']">Volver</button>
+            </div>
+            <div *ngIf="mensaje" class="alert alert-info mt-3">
+              {{mensaje}}
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

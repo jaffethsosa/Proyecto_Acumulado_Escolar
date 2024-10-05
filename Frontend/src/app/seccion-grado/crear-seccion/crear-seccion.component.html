@@ -1,0 +1,25 @@
+<div class="container mt-5 pt-5"></div>
+  <div class="row">
+      <div class="col-lg-4 mx-auto">
+          <div class="card">
+              <div class="card-body text-center">
+                <div class="container">
+                  <h2>Crear Seccion</h2>
+                  <form [formGroup]="seccionForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                      <label for="nombre">Nombre de la Seccion</label>
+                      <input id="nombre" formControlName="nombre" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary" [disabled]="!seccionForm.valid">Crear Seccion</button>
+                    <div class="button-container">
+                      <button class="btn btn-success" [routerLink]="['/seccion-grado']">Volver</button>
+                  </div>
+                  </form>
+                  <div *ngIf="mensaje" class="alert alert-info mt-3">
+                    {{mensaje}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>

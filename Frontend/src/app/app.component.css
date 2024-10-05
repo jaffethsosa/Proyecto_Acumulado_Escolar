@@ -1,0 +1,8 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+:host {
+    display: block;
+    height: auto; 
+    min-height: 100vh; 
+    background: linear-gradient(to bottom, #55b1ef, transparent);
+}

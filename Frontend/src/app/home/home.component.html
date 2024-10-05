@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="card-container">
+        <a [routerLink]="['/alumnos']" class="text-decoration-none">
+            <div class="card">
+                <img src="../../assets/alumnos.png" class="card-img-top" alt="imgf"/>
+                <div class="card-body">
+                    <p class="card-text">Alumnos</p>
+                    <p>
+                        <a [routerLink]="['/listAlumnos']" class="card-link">Listado de Alumnos</a>
+                    </p>
+                    <p>
+                        <a [routerLink]="['/crearAlumnos']" class="card-link">Matricular Alumno</a>
+                    </p>
+                </div>
+            </div>
+        </a>
+        <a [routerLink]="['/clases']" class="text-decoration-none">
+            <div class="card">
+                <img src="../../assets/book.png" class="card-img-top" alt="Image 2"/>
+                <div class="card-body">
+                    <p class="card-text">Clases</p>
+                    <p>
+                        <a [routerLink]="['/listClases']" class="card-link">Listado de Clases</a>
+                    </p>
+                    <p>
+                        <a [routerLink]="['/crearClase']" class="card-link">Crear Clase</a>
+                    </p>
+                    <p>
+                        <a [routerLink]="['/notas']" class="card-link">Notas</a>
+                    </p>
+                </div>
+            </div>
+        </a>
+        <a [routerLink]="['/seccion-grado']" class="text-decoration-none">
+            <div class="card">
+                <img src="../../assets/section.png" class="card-img-top" alt="..."/>
+                <div class="card-body">
+                    <p class="card-text">Secciones</p>
+                    <p>
+                        <a [routerLink]="['/crearSeccion']" class="card-link">Crear Seccion</a>
+                    </p>
+                    <p>
+                        <a [routerLink]="['/crearGrado']" class="card-link">Crear Grado</a>
+                    </p>
+                    <p>
+                        <a [routerLink]="['/crearPeriodo']" class="card-link">Crear Periodo</a>
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>  
+</div>

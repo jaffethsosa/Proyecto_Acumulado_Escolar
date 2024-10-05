@@ -1,0 +1,64 @@
+<div class="container mt-5 pt-5">
+    <div class="row">
+        <div class="col-lg-4 mx-auto">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h2>Crear Nuevo Periodo</h2>
+                
+                    <form (ngSubmit)="crearPeriodo()" #periodoForm="ngForm">
+                    
+                    <div class="form-group">
+                        <label for="anioInicio">Año de Inicio</label>
+                        <input
+                        type="number"
+                        id="anioInicio"
+                        class="form-control"
+                        [(ngModel)]="nuevoPeriodo.anioInicio"
+                        name="anioInicio"
+                        required
+                        #anioInicio="ngModel"
+                        />
+                        <div *ngIf="anioInicio.invalid && anioInicio.touched" class="text-danger">
+                        El año de inicio es requerido.
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-2">
+                        <label for="anioFin">Año de Fin</label>
+                        <input
+                        type="number"
+                        id="anioFin"
+                        class="form-control"
+                        [(ngModel)]="nuevoPeriodo.anioFin"
+                        name="anioFin"
+                        required
+                        #anioFin="ngModel"
+                        />
+                        <div *ngIf="anioFin.invalid && anioFin.touched" class="text-danger">
+                        El año de fin es requerido.
+                        </div>
+                    </div>
+                
+                    <div class="form-group mt-2">
+                        <label for="descripcion">Descripción</label>
+                        <input
+                        type="text"
+                        id="descripcion"
+                        class="form-control"
+                        [(ngModel)]="nuevoPeriodo.descripcion"
+                        name="descripcion"
+                        />
+                    </div>
+                
+                    <button type="submit" class="btn btn-primary mt-3" [disabled]="periodoForm.invalid">
+                        Crear Periodo
+                    </button>
+                    <div class="button-container mt-2">
+                        <button class="btn btn-success" [routerLink]="['/seccion-grado']">Volver</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

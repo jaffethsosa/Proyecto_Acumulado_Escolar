@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="card-container">
+        <a [routerLink]="['/listAlumnos']" class="text-decoration-none">
+            <div class="card">
+                <img src="../../assets/lista.png" class="card-img-top" alt="Image 1">
+                <div class="card-body">
+                    <p class="card-text">Listado de Alumnos</p>
+                </div>
+            </div>
+        </a>
+        <a [routerLink]="['/crearAlumnos']" class="text-decoration-none">
+            <div class="card">
+                <img src="../../assets/matricula_img.png" class="card-img-top" alt="Image 2">
+                <div class="card-body">
+                    <p class="card-text">Crear Almuno</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    
+    <div class="button-container">
+        <button class="btn btn-success" [routerLink]="['/home']">Volver</button>
+    </div>
+</div>
+

@@ -1,0 +1,81 @@
+<div class="container mt-5">
+  <h2>Listado de Notas</h2>
+
+  <div class="mb-3">
+    <label for="filtroNombre" class="form-label">Filtrar por Nombre:</label>
+    <input type="text" class="form-control" [(ngModel)]="filtroNombre" (input)="filtrar()" placeholder="Ingrese nombre">
+  </div>
+
+  <div class="mb-3">
+    <label for="filtroGrado" class="form-label">Filtrar por Grado:</label>
+    <select class="form-select" [(ngModel)]="filtroGrado" (change)="filtrar()">
+      <option value="">Seleccione un grado</option>
+      <option *ngFor="let grado of grados" [value]="grado.nombre">{{ grado.nombre }}</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="filtroSeccion" class="form-label">Filtrar por Sección:</label>
+    <select class="form-select" [(ngModel)]="filtroSeccion" (change)="filtrar()">
+      <option value="">Seleccione una sección</option>
+      <option *ngFor="let seccion of secciones" [value]="seccion._id">{{ seccion.nombre }}</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="filtroClase" class="form-label">Filtrar por Clase:</label>
+    <select class="form-select" [(ngModel)]="filtroClase" (change)="filtrar()">
+      <option value="">Seleccione una clase</option>
+      <option *ngFor="let clase of clases" [value]="clase._id">{{ clase.nombre }}</option>
+    </select>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Alumno</th>
+        <th>Clase</th>
+        <th>Grado</th>
+        <th>Sección</th>
+        <th>Estado</th>
+        <th>Acumulado</th>
+        <th>Examenes</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let matricula of matriculasFiltradas">
+        <td *ngIf="alumnoSeleccionado?.dni !== matricula.alumno.dni">{{ matricula.alumno.nombres }} {{ matricula.alumno.apellidos }}</td>
+        <td *ngIf="alumnoSeleccionado?.dni === matricula.alumno.dni">
+          <input type="text" [(ngModel)]="alumnoSeleccionado.alumno.nombres" />
+          <input type="text" [(ngModel)]="alumnoSeleccionado.alumno.apellidos" />
+        </td>
+        <td>{{ matricula.clase.nombre }}</td>
+        <td>{{ matricula.grado.nombre }}</td>
+        <td>{{ matricula.seccion.nombre }}</td>
+        <td>{{ matricula.estado }}</td>
+        <td></td>
+        <td></td>
+        <td>
+          <ng-container *ngIf="alumnoSeleccionado?.dni !== matricula.alumno.dni">
+            <button class="btn btn-primary me-2 btn-sm" (click)="iniciarEdicion(matricula)">
+              <i class="fas fa-edit"></i>
+            </button>
+            <button class="btn btn-danger btn-sm" (click)="eliminarAlumno(matricula._id)">
+              <i class="fas fa-trash"></i>
+            </button>            
+          </ng-container>
+          <ng-container *ngIf="alumnoSeleccionado?.dni === matricula.alumno.dni">
+            <button class="btn btn-success me-2 btn-sm" (click)="actualizarAlumno(alumnoSeleccionado)">
+              <i class="fas fa-save"></i>
+            </button>
+            <button class="btn btn-secondary btn-sm" (click)="cancelarEdicion()">
+              <i class="fas fa-times"></i>
+            </button>
+          </ng-container>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+</div>

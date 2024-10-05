@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="card-container">
+        <a [routerLink]="['/crearSeccion']" class="text-decoration-none">
+            <div class="card">
+                <img src="../../assets/seccion_img.png" class="card-img-top" alt="Image 1">
+                <div class="card-body">
+                    <p class="card-text">Crear Seccion</p>
+                </div>
+            </div>
+        </a>
+        <a [routerLink]="['/crearGrado']" class="text-decoration-none">
+            <div class="card">
+                <img src="../../assets/grado_img.png" class="card-img-top" alt="Image 2">
+                <div class="card-body">
+                    <p class="card-text">Crear Grado</p>
+                </div>
+            </div>
+        </a>
+        <a [routerLink]="['/crearPeriodo']" class="text-decoration-none">
+            <div class="card">
+                <img src="../../assets/periodo_img.png" class="card-img-top" alt="Image 2">
+                <div class="card-body">
+                    <p class="card-text">Crear Periodo</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    
+    <div class="button-container">
+        <button class="btn btn-success" [routerLink]="['/home']">Volver</button>
+    </div>
+</div>

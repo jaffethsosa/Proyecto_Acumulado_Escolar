@@ -1,0 +1,61 @@
+<div class="container mt-3 pt-5">
+    <div class="row">
+        <div class="col-lg-7 offset-lg-2">
+            <div class="card">
+                <div class="card-body">
+                    <!-- Contenedor para los botones -->
+                    <div class="d-flex justify-content-between mb-3">
+                        <button class="btn btn-success" [routerLink]="['/clases']">Volver</button>
+                        <button class="btn btn-success" [routerLink]="['/crearClase']">Nuevo</button>
+                    </div>
+                    <h5 class="card-title text-center">Listado de Clases</h5>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Grado</th>
+                                <th scope="col">Sección</th>
+                                <th scope="col">Periodo</th>
+                                <th scope="col">Acciones</th> 
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let clase of listClases">
+                                <td>{{ clase.nombre }}</td>
+                                <td>{{ clase.grado.nombre }}</td> 
+                                <td>{{ clase.seccion.nombre }}</td> 
+                                <td>{{ clase.periodo.anioInicio}}</td>
+                                <td>
+                                    <ng-container *ngIf="!clase.editing">
+                                        <div class="d-flex justify-content">
+                                            <!-- Botón de Editar con ícono -->
+                                            <button class="btn btn-primary me-2 btn-sm" (click)="iniciarEdicion(clase)">
+                                                <i class="fas fa-edit"></i> <!-- Ícono de lápiz -->
+                                            </button>
+                                            <!-- Botón de Eliminar con ícono -->
+                                            <button class="btn btn-danger btn-sm" (click)="clase._id && eliminarClase(clase._id)">
+                                                <i class="fas fa-trash"></i> <!-- Ícono de papelera -->
+                                              </button>
+                                        </div>
+                                    </ng-container>
+                                    <ng-container *ngIf="clase.editing">
+                                        <div class="d-flex justify-content-end">
+                                            <!-- Botón de Guardar con ícono -->
+                                            <button class="btn btn-success me-2 btn-sm" (click)="actualizarClase(clase)">
+                                                <i class="fas fa-save"></i> <!-- Ícono de guardar -->
+                                            </button>
+                                            <!-- Botón de Cancelar con ícono -->
+                                            <button class="btn btn-secondary btn-sm" (click)="cancelarEdicion(clase)">
+                                                <i class="fas fa-times"></i> <!-- Ícono de cancelar -->
+                                            </button>
+                                        </div>
+                                    </ng-container>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
